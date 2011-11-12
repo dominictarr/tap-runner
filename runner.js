@@ -88,7 +88,7 @@ Runner.prototype.runFiles = function (files, dir, cb) {
         self.emit("result", c)
         self.write(c)
       })
-
+      self.emit('child_process', cp)
       cp.stdout.pipe(tc)
       cp.stdout.on("data", function (c) { out += c })
       cp.stderr.on("data", function (c) { err += c })
