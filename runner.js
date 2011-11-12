@@ -78,7 +78,7 @@ Runner.prototype.runFiles = function (files, dir, cb) {
       for (var i in process.env) env[i] = process.env[i]
       env.TAP = 1
 
-      var cp = child_process.spawn(cmd, args, { env: env, cwd: relDir })
+      var cp = child_process.spawn(cmd, args, { env: env, cwd: process.cwd()})
         , out = ""
         , err = ""
         , tc = new TapConsumer
